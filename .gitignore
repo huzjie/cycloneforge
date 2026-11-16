@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# 运行时
+*.log
+data/runs/
+.cache/
+.state/
+.work/
+.ckpt/
+
+# 环境
+.env
+.env.local
+
+# 数据（真实 GRIB/NetCDF 由用户自行配置，不提交）
+data/*.nc
+data/*.grib
+data/*.grib2
+data/*.h5
+
+# IDE
+.idea/
+.vscode/
+*.swp

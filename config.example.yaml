@@ -1,0 +1,32 @@
+# cycloneforge 参考配置（复制为 config.yaml 后按需修改）
+data:
+  source: synthetic              # synthetic（确定性 mock）或 netcdf
+  train_years: [2018, 2019, 2020]
+  val_years:   [2021]
+  test_years:  [2022]
+  data_dir: ./data
+
+model:
+  dim: 16                        # 隐层维度（纯 Python 下用 16~32）
+  processor_layers: 2            # GNN 消息传递层数
+  grid_level: 3                  # 球面网格细分层（level=3 → 642 节点）
+  heads: [track, intensity, wind]
+
+forecast:
+  horizon_hours: 120             # 5 天
+  step_hours: 6                  # 每 6 小时一步（20 步）
+  leadtime_threshold_km: 120     # 轨迹误差越限即判「提前量耗尽」
+
+ensemble:
+  n_members: 50
+  perturb_scale: 0.1
+
+train:
+  epochs: 60
+  lr: 0.02
+  seed: 20261116
+  val_every: 20
+
+serve:
+  host: 127.0.0.1
+  port: 8000

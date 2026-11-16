@@ -1,0 +1,8 @@
+{
+  "name": "cycloneforge-sdk",
+  "version": "0.1.0",
+  "description": "cycloneforge TypeScript client",
+  "main": "index.ts",
+  "types": "index.ts",
+  "license": "MIT"
+}

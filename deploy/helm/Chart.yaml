@@ -1,0 +1,6 @@
+apiVersion: v2
+name: cycloneforge
+description: 神经网络热带气旋预测引擎
+type: application
+version: 0.1.0
+appVersion: "0.1.0"

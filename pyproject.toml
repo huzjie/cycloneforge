@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cycloneforge"
+version = "0.1.0"
+description = "神经网络热带气旋预测引擎：球面图神经网络 + 三要素预测头 + 滚动自回归 + 集合预报（WeatherNext Cyclones 方法论参考实现）"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "智能交付知识工程组" }]
+keywords = ["weather", "cyclone", "typhoon", "gnn", "graph-neural-network", "ensemble", "forecasting", "nature", "zero-dependency"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Atmospheric Science",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+[project.optional-dependencies]
+serve = ["fastapi>=0.110", "uvicorn>=0.29", "pydantic>=2.6"]
+dev = ["pytest>=8", "ruff>=0.4"]
+
+[project.scripts]
+cycloneforge = "cycloneforge.cli.main:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["cycloneforge*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
